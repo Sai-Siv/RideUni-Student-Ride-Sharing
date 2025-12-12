@@ -1,7 +1,5 @@
 # RideUni-Student-Ride-Sharing
 
-<img src="docs/cover.svg" alt="RideUni Cover" width="100%" />
-
 ![Flutter](https://img.shields.io/badge/Flutter-3.x-02569B?logo=flutter&logoColor=white)
 ![Dart](https://img.shields.io/badge/Dart-3.x-0175C2?logo=dart&logoColor=white)
 ![Firebase](https://img.shields.io/badge/Firebase-Auth%20%7C%20Firestore-FFCA28?logo=firebase&logoColor=black)
@@ -28,17 +26,12 @@ RideUni is a Flutter app for campus ride sharing. Students can offer rides or fi
 
 ## Configuration
 Provide secrets via `--dart-define` (never commit keys):
-## Configuration
-Provide secrets via `--dart-define` (never commit keys):
 - `MAPPLS_MAP_SDK_KEY`
 - `MAPPLS_REST_API_KEY`
 - `MAPPLS_ATLAS_CLIENT_ID`
 - `MAPPLS_ATLAS_CLIENT_SECRET`
 - `GEOAPIFY_API_KEY`
 
-Firebase config files are required locally (ignored by Git):
-- Android: `android/app/google-services.json`
-- iOS: `ios/Runner/GoogleService-Info.plist`
 Firebase config files are required locally (ignored by Git):
 - Android: `android/app/google-services.json`
 - iOS: `ios/Runner/GoogleService-Info.plist`
@@ -50,30 +43,16 @@ Firebase config files are required locally (ignored by Git):
    - `android/app/google-services.json`
    - `ios/Runner/GoogleService-Info.plist`
 4. Obtain Mappls and Geoapify keys.
-1. Install Flutter and run `flutter doctor`.
-2. Create a Firebase project; enable Authentication and Firestore.
-3. Download and place:
-   - `android/app/google-services.json`
-   - `ios/Runner/GoogleService-Info.plist`
-4. Obtain Mappls and Geoapify keys.
 
-## Run
-Single line (works everywhere):
+
 ## Run
 Single line (works everywhere):
 ```
 flutter run --dart-define=MAPPLS_MAP_SDK_KEY=your_mapsdk_key --dart-define=MAPPLS_REST_API_KEY=your_restapi_key --dart-define=MAPPLS_ATLAS_CLIENT_ID=your_atlas_client_id --dart-define=MAPPLS_ATLAS_CLIENT_SECRET=your_atlas_client_secret --dart-define=GEOAPIFY_API_KEY=your_geoapify_key
-flutter run --dart-define=MAPPLS_MAP_SDK_KEY=your_mapsdk_key --dart-define=MAPPLS_REST_API_KEY=your_restapi_key --dart-define=MAPPLS_ATLAS_CLIENT_ID=your_atlas_client_id --dart-define=MAPPLS_ATLAS_CLIENT_SECRET=your_atlas_client_secret --dart-define=GEOAPIFY_API_KEY=your_geoapify_key
 ```
 
 Windows PowerShell (multi-line):
-Windows PowerShell (multi-line):
 ```
-flutter run `
-  --dart-define=MAPPLS_MAP_SDK_KEY=your_mapsdk_key `
-  --dart-define=MAPPLS_REST_API_KEY=your_restapi_key `
-  --dart-define=MAPPLS_ATLAS_CLIENT_ID=your_atlas_client_id `
-  --dart-define=MAPPLS_ATLAS_CLIENT_SECRET=your_atlas_client_secret `
 flutter run `
   --dart-define=MAPPLS_MAP_SDK_KEY=your_mapsdk_key `
   --dart-define=MAPPLS_REST_API_KEY=your_restapi_key `
@@ -83,48 +62,10 @@ flutter run `
 ```
 
 Build APK:
-Build APK:
 ```
 flutter build apk --dart-define=MAPPLS_MAP_SDK_KEY=your_mapsdk_key --dart-define=MAPPLS_REST_API_KEY=your_restapi_key --dart-define=MAPPLS_ATLAS_CLIENT_ID=your_atlas_client_id --dart-define=MAPPLS_ATLAS_CLIENT_SECRET=your_atlas_client_secret --dart-define=GEOAPIFY_API_KEY=your_geoapify_key
-flutter build apk --dart-define=MAPPLS_MAP_SDK_KEY=your_mapsdk_key --dart-define=MAPPLS_REST_API_KEY=your_restapi_key --dart-define=MAPPLS_ATLAS_CLIENT_ID=your_atlas_client_id --dart-define=MAPPLS_ATLAS_CLIENT_SECRET=your_atlas_client_secret --dart-define=GEOAPIFY_API_KEY=your_geoapify_key
 ```
 
-## Screenshots
-
-<p>
-  <img src="assets/login.jpeg" alt="Onboarding" width="30%" />
-  <img src="assets/home.jpeg" alt="Login" width="30%" />
-  <img src="assets/profile.jpeg" alt="Profile" width="30%" />
-  <img src="assets/myvehicles.jpeg" alt="My Vehicles" width="30%" />
-  <img src="assets/myride.jpeg" alt="My Ride" width="30%" />
-</p>
-
-## Architecture
-
-```mermaid
-flowchart LR
-  App[Flutter App] --> Auth[Firebase Auth]
-  App --> DB[Firestore]
-  App --> Maps[Mappls GL SDK]
-  App --> Geo[Geoapify HTTP APIs]
-
-  subgraph UI
-    Home[Home & Forms]
-    Picker[Map Picker]
-    Login[Login/Signup]
-    Rides[Rides Listing]
-  end
-
-  Home --> DB
-  Picker --> Maps
-  Picker --> Geo
-  Login --> Auth
-  Rides --> DB
-```
-
-## Security
-- Do not commit `google-services.json` or `GoogleService-Info.plist`.
-- Use `--dart-define` for secrets; never hardcode keys.
 ## Screenshots
 
 <p>
