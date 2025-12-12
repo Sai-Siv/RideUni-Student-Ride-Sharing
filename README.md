@@ -72,7 +72,7 @@ flutter build apk --dart-define=MAPPLS_MAP_SDK_KEY=your_mapsdk_key --dart-define
     <img src="assets/login.jpeg" alt="Onboarding" width="30%" />
   <img src="assets/home.jpeg" alt="Login" width="30%" />
   <img src="assets/profile.jpeg" alt="Profile" width="30%" />
-  <img src="assets/myvehicles.jpeg" alt="My Vehicles" width="30%" />
+  <img src="assets/myvehicle.jpeg" alt="My Vehicles" width="30%" />
   <img src="assets/myride.jpeg" alt="My Ride" width="30%" />
 </p>
 
